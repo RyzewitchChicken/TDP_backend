@@ -5,20 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Roles")
-public class Rol {
+@Table(name="Make")
+public class Make {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="roleId")
+	@Column(name="makeId")
 	private Long codigo;
-	private String roleName;
+	private String makeName;
 	
-	
-
 	
 	public Long getCodigo() {
 		return codigo;
@@ -26,17 +23,13 @@ public class Rol {
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-	public String getRoleName() {
-		return roleName;
+	public String getMakeName() {
+		return makeName;
 	}
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
+	public void setMakeName(String makeName) {
+		this.makeName = makeName;
 	}
-
-
 	
-	
-
 	
 	
 

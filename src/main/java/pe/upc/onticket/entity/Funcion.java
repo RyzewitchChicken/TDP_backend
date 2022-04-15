@@ -9,13 +9,13 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="FUNCIONES")
+@Table(name="Functions")
 public class Funcion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID_FUNCION")
+	@Column(name="functionId")
 	private Long codigo;
-	private String nombre;
+	private String functionName;
 	
 	
 	public Long getCodigo() {
@@ -24,13 +24,13 @@ public class Funcion {
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-	public String getNombre() {
-		return nombre;
+	public String getFunctionName() {
+		return functionName;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setFunctionName(String functionName) {
+		this.functionName = functionName;
 	}
-	
+ 
 	
 
 }

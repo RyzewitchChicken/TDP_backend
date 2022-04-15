@@ -30,8 +30,8 @@ public class ServicioRol {
 	//Actualizar Datos
 	public Rol actualizarRol(Rol rol, Long codigo) throws Exception {
 		Rol r=repositorioRol.getRol(codigo);
-		if(rol.getNombre()!=null) {
-			r.setNombre(rol.getNombre());
+		if(rol.getRoleName()!=null) {
+			r.setRoleName(rol.getRoleName());
 		}
 
 		return repositorioRol.save(r);

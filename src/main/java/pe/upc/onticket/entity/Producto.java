@@ -12,17 +12,17 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="PRODUCTOS")
+@Table(name="Product")
 public class Producto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID_PRODUCTO")
+	@Column(name="productId")
 	private Long codigo;
-	private String nombre;
-	private String descripcion;
+	private String productName;
+	private String productDescription;
 	
 	@ManyToOne
-	@JoinColumn(name="ID_FAMPRODUCTO")
+	@JoinColumn(name="familyProductId")
 	private FamProducto famproducto;
 	
 	public Long getCodigo() {
@@ -31,17 +31,17 @@ public class Producto {
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-	public String getNombre() {
-		return nombre;
+	public String getProductName() {
+		return productName;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
-	public String getDescripcion() {
-		return descripcion;
+	public String getProductDescription() {
+		return productDescription;
 	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
 	}
 	public FamProducto getFamproducto() {
 		return famproducto;
@@ -49,6 +49,8 @@ public class Producto {
 	public void setFamproducto(FamProducto famproducto) {
 		this.famproducto = famproducto;
 	}
+
+	
 	
 	
 	

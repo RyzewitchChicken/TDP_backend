@@ -29,11 +29,11 @@ public class ServicioDevices {
 	//Actualizar Datos
 	public Devices actualizarDevices(Devices devices, Long codigo) throws Exception {
 		Devices dev=repositorioDevices.getDevice(codigo);
-		if(devices.getNombre()!=null) {
-			dev.setNombre(devices.getNombre());
+		if(devices.getIotDeviceName()!=null) {
+			dev.setIotDeviceName(devices.getIotDeviceName());
 		}
-		if(devices.getNumero_serie()!=null) {
-			dev.setNumero_serie(devices.getNumero_serie());
+		if(devices.getIotDeviceSerialNumber()!=null) {
+			dev.setIotDeviceSerialNumber(devices.getIotDeviceSerialNumber());
 		}
 		return repositorioDevices.save(dev);
 		

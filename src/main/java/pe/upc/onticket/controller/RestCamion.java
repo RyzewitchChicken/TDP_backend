@@ -89,7 +89,7 @@ public class RestCamion {
 			}
 			
 			//Borrar imagen anterior si existe
-			String nomAnterior=camion.getImagen();
+			String nomAnterior=camion.getTruckImage();
 			
 			if(nomAnterior != null && nomAnterior.length() > 0) {
 				Path rutaImgAnt = Paths.get("uploads").resolve(nomAnterior).toAbsolutePath();
@@ -99,7 +99,7 @@ public class RestCamion {
 				}
 			}
 			
-			camion.setImagen(nombreArch);
+			camion.setTruckImage(nombreArch);
 			
 			
 			response.put("camion", camion);
@@ -131,7 +131,7 @@ public class RestCamion {
 			}
 			
 			//Borrar imagen anterior si existe
-			String nomAnterior=camion.getImagen();
+			String nomAnterior=camion.getTruckImage();
 			
 			if(nomAnterior != null && nomAnterior.length() > 0) {
 				Path rutaImgAnt = Paths.get("uploads").resolve(nomAnterior).toAbsolutePath();
@@ -141,7 +141,7 @@ public class RestCamion {
 				}
 			}
 			
-			camion.setImagen(nombreArch);
+			camion.setTruckImage(nombreArch);
 			
 			try {
 				servicioCamion.actualizarCamion(camion, codigo);
@@ -165,7 +165,7 @@ public class RestCamion {
 		Camion c;
 		try {
 			Camion camion = servicioCamion.obtenerCamion(codigo);
-			String nomAnterior=camion.getImagen();
+			String nomAnterior=camion.getTruckImage();
 			
 			if(nomAnterior != null && nomAnterior.length() > 0) {
 				Path rutaImgAnt = Paths.get("uploads").resolve(nomAnterior).toAbsolutePath();

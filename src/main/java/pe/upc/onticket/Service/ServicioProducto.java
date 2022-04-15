@@ -30,11 +30,11 @@ public class ServicioProducto {
 	//Actualizar Datos
 	public Producto actualizarProducto(Producto producto, Long codigo) throws Exception {
 		Producto pr=repositorioProducto.getProducto(codigo);
-		if(producto.getNombre()!=null) {
-			pr.setNombre(producto.getNombre());
+		if(producto.getProductName()!=null) {
+			pr.setProductName(producto.getProductName());
 		}
-		if(producto.getDescripcion()!=null) {
-			pr.setDescripcion(producto.getDescripcion());
+		if(producto.getProductDescription()!=null) {
+			pr.setProductDescription(producto.getProductDescription());
 		}
 		if(producto.getFamproducto()!=null) {
 			pr.setFamproducto(producto.getFamproducto());

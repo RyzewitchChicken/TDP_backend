@@ -31,11 +31,14 @@ public class ServicioCamion {
 	//Actualizar Datos
 	public Camion actualizarCamion(Camion camion, Long codigo) throws Exception {
 		Camion cam=repositorioCamion.getCamion(codigo);
-		if(camion.getMarca()!=null) {
-			cam.setMarca(camion.getMarca());
+		if(camion.getTruckPlate()!=null) {
+			cam.setTruckPlate(camion.getTruckPlate());
 		}
-		if(camion.getPlaca()!=null) {
-			cam.setPlaca(camion.getPlaca());
+		if(camion.getModel()!=null) {
+			cam.setModel(camion.getModel());
+		}
+		if(camion.getMake()!=null) {
+			cam.setMake(camion.getMake());
 		}
 		return repositorioCamion.save(cam);
 		

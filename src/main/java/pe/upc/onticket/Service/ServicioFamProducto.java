@@ -29,17 +29,23 @@ public class ServicioFamProducto {
 	//Actualizar Datos
 	public FamProducto actualizarFamProducto(FamProducto famproducto, Long codigo) throws Exception {
 		FamProducto fp=repositorioFamProducto.getFamProducto(codigo);
-		if(famproducto.getNombre()!=null) {
-			fp.setNombre(famproducto.getNombre());
+		if(famproducto.getFamilyProductName()!=null) {
+			fp.setFamilyProductName(famproducto.getFamilyProductName());
 		}
-		if(famproducto.getTemperatura()!=0) {
-			fp.setTemperatura(famproducto.getTemperatura());
+		if(famproducto.getFamilyProductTemperatureMin()!=0) {
+			fp.setFamilyProductTemperatureMin(famproducto.getFamilyProductTemperatureMin());
 		}
-		if(famproducto.getHumedad()!=0) {
-			fp.setHumedad(famproducto.getHumedad());
+		if(famproducto.getFamilyProductTemperatureMax()!=0) {
+			fp.setFamilyProductTemperatureMax(famproducto.getFamilyProductTemperatureMax());
 		}
-		if(famproducto.getVelocidad()!=0) {
-			fp.setVelocidad(famproducto.getVelocidad());
+		if(famproducto.getFamilyProductHumidityMin()!=0) {
+			fp.setFamilyProductHumidityMin(famproducto.getFamilyProductHumidityMin());
+		}
+		if(famproducto.getFamilyProductHumidityMax()!=0) {
+			fp.setFamilyProductHumidityMax(famproducto.getFamilyProductHumidityMax());
+		}
+		if(famproducto.getFamilyProductVelocityMax()!=0) {
+			fp.setFamilyProductVelocityMax(famproducto.getFamilyProductVelocityMax());
 		}
 		return repositorioFamProducto.save(fp);
 		

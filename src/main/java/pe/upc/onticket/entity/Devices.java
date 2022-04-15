@@ -9,14 +9,14 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="DEVICES")
+@Table(name="iot_Device")
 public class Devices {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID_DEVICE")
+	@Column(name="iotDeviceId")
 	private Long codigo;
-	private String nombre;
-	private String numero_serie;
+	private String iotDeviceName;
+	private String iotDeviceSerialNumber;
 	
 	
 	public Long getCodigo() {
@@ -25,18 +25,20 @@ public class Devices {
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-	public String getNombre() {
-		return nombre;
+	public String getIotDeviceName() {
+		return iotDeviceName;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setIotDeviceName(String iotDeviceName) {
+		this.iotDeviceName = iotDeviceName;
 	}
-	public String getNumero_serie() {
-		return numero_serie;
+	public String getIotDeviceSerialNumber() {
+		return iotDeviceSerialNumber;
 	}
-	public void setNumero_serie(String numero_serie) {
-		this.numero_serie = numero_serie;
+	public void setIotDeviceSerialNumber(String iotDeviceSerialNumber) {
+		this.iotDeviceSerialNumber = iotDeviceSerialNumber;
 	}
+
+	
 	
 	
 	

@@ -29,23 +29,23 @@ public class ServicioUser {
 	//Actualizar Datos
 	public User actualizarUser(User user, Long codigo) throws Exception {
 		User cam=repositorioUser.getUser(codigo);
-		if(user.getUsuario()!=null) {
-			cam.setUsuario(user.getUsuario());
+		if(user.getPersonName()!=null) {
+			cam.setPersonName(user.getPersonName());
 		}
-		if(user.getNombre()!=null) {
-			cam.setNombre(user.getNombre());
+		if(user.getPersonLastName()!=null) {
+			cam.setPersonLastName(user.getPersonLastName());
 		}
-		if(user.getApellido()!=null) {
-			cam.setApellido(user.getApellido());
+		if(user.getPersonCompany()!=null) {
+			cam.setPersonCompany(user.getPersonCompany());
 		}
-		if(user.getContraseña()!=null) {
-			cam.setContraseña(user.getContraseña());
+		if(user.getPersonDocument()!=null) {
+			cam.setPersonDocument(user.getPersonDocument());
 		}
-		if(user.getFecha_nacimiento()!=null) {
-			cam.setFecha_nacimiento(user.getFecha_nacimiento());
+		if(user.getPersonBirthDate()!=null) {
+			cam.setPersonBirthDate(user.getPersonBirthDate());
 		}
-		if(user.getRol()!=null) {
-			cam.setRol(user.getRol());
+		if(user.getPersonEmail()!=null) {
+			cam.setPersonEmail(user.getPersonEmail());
 		}
 		return repositorioUser.save(cam);
 		

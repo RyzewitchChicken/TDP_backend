@@ -29,8 +29,8 @@ public class ServicioFuncion {
 	//Actualizar Datos
 	public Funcion actualizarFuncion(Funcion funcion, Long codigo) throws Exception {
 		Funcion func=repositorioFuncion.getFuncion(codigo);
-		if(funcion.getNombre()!=null) {
-			func.setNombre(funcion.getNombre());
+		if(funcion.getFunctionName()!=null) {
+			func.setFunctionName(funcion.getFunctionName());
 		}
 	
 		return repositorioFuncion.save(func);

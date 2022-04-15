@@ -9,59 +9,44 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="\"Truck\"")
-public class Camion {
+@Table(name="Model")
+public class Model {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="truckId")
+	@Column(name="modelId")
 	private Long codigo;
-	private String truckPlate;
-	private String truckImage;
-	
+	private String modelName;
 	
 	@ManyToOne
 	@JoinColumn(name="makeId")
 	private Make make;
-	@ManyToOne
-	@JoinColumn(name="modelId")
-	private Model model;
-	
+
 	public Long getCodigo() {
 		return codigo;
 	}
+
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
-	public String getTruckPlate() {
-		return truckPlate;
+	public String getModelName() {
+		return modelName;
 	}
-	public void setTruckPlate(String truckPlate) {
-		this.truckPlate = truckPlate;
+
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
 	}
-	public String getTruckImage() {
-		return truckImage;
-	}
-	public void setTruckImage(String truckImage) {
-		this.truckImage = truckImage;
-	}
+
 	public Make getMake() {
 		return make;
 	}
+
 	public void setMake(Make make) {
 		this.make = make;
 	}
-	public Model getModel() {
-		return model;
-	}
-	public void setModel(Model model) {
-		this.model = model;
-	}
+	
+	
 
 
-	
-	
-	
 }

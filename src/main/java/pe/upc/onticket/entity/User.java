@@ -7,27 +7,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name="USERS")
+@Table(name="Person")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID_USER")
+	@Column(name="personId")
 	private Long codigo;
-	private String usuario;
-	private String nombre;
-	private String apellido;
-	private String contraseña;
-	private Date fecha_nacimiento;
+	private String personName;
+	private String personLastName;
+	private String personCompany;
+	private String personDocument;
+	private Date   personBirthDate;
+	private String personEmail;
 	
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn(name="ID_ROL")
-	private Rol rol;
+	private Rol rol;*/
 	
 	public Long getCodigo() {
 		return codigo;
@@ -35,42 +34,43 @@ public class User {
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-	public String getUsuario() {
-		return usuario;
+	public String getPersonName() {
+		return personName;
 	}
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setPersonName(String personName) {
+		this.personName = personName;
 	}
-	public String getNombre() {
-		return nombre;
+	public String getPersonLastName() {
+		return personLastName;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setPersonLastName(String personLastName) {
+		this.personLastName = personLastName;
 	}
-	public String getApellido() {
-		return apellido;
+	public String getPersonCompany() {
+		return personCompany;
 	}
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setPersonCompany(String personCompany) {
+		this.personCompany = personCompany;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getPersonDocument() {
+		return personDocument;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setPersonDocument(String personDocument) {
+		this.personDocument = personDocument;
 	}
-	public Date getFecha_nacimiento() {
-		return fecha_nacimiento;
+	public Date getPersonBirthDate() {
+		return personBirthDate;
 	}
-	public void setFecha_nacimiento(Date fecha_nacimiento) {
-		this.fecha_nacimiento = fecha_nacimiento;
+	public void setPersonBirthDate(Date personBirthDate) {
+		this.personBirthDate = personBirthDate;
 	}
-	public Rol getRol() {
-		return rol;
+	public String getPersonEmail() {
+		return personEmail;
 	}
-	public void setRol(Rol rol) {
-		this.rol = rol;
+	public void setPersonEmail(String personEmail) {
+		this.personEmail = personEmail;
 	}
+	
 	
 	
 	
