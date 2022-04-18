@@ -40,6 +40,9 @@ public class ServicioCamion {
 		if(camion.getMake()!=null) {
 			cam.setMake(camion.getMake());
 		}
+		if(camion.getDevices()!=null) {
+			cam.setDevices(camion.getDevices());
+		}
 		return repositorioCamion.save(cam);
 		
 	}

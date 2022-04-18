@@ -19,7 +19,7 @@ public class FuncionRol {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="RoleFunctionId")
 	private Long codigo;
-
+	private String roleFunctionWriteRead;
 	
 	@ManyToOne
 	@JoinColumn(name="roleId")
@@ -46,6 +46,12 @@ public class FuncionRol {
 	}
 	public void setFuncion(Funcion funcion) {
 		this.funcion = funcion;
+	}
+	public String getRoleFunctionWriteRead() {
+		return roleFunctionWriteRead;
+	}
+	public void setRoleFunctionWriteRead(String roleFunctionWriteRead) {
+		this.roleFunctionWriteRead = roleFunctionWriteRead;
 	}
 	
 	

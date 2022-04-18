@@ -24,9 +24,7 @@ public class User {
 	private Date   personBirthDate;
 	private String personEmail;
 	
-	/*@ManyToOne
-	@JoinColumn(name="ID_ROL")
-	private Rol rol;*/
+
 	
 	public Long getCodigo() {
 		return codigo;

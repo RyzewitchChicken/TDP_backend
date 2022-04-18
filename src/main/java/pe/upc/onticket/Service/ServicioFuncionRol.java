@@ -34,6 +34,9 @@ public class ServicioFuncionRol {
 		if(funcionrol.getFuncion()!=null) {
 			fr.setFuncion(funcionrol.getFuncion());
 		}
+		if(funcionrol.getRoleFunctionWriteRead()!=null) {
+			fr.setRoleFunctionWriteRead(funcionrol.getRoleFunctionWriteRead());
+		}
 
 		return repositorioFuncionRol.save(fr);
 		

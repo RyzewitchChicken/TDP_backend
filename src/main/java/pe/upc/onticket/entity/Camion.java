@@ -24,9 +24,14 @@ public class Camion {
 	@ManyToOne
 	@JoinColumn(name="makeId")
 	private Make make;
+	
 	@ManyToOne
 	@JoinColumn(name="modelId")
 	private Model model;
+	
+	@ManyToOne
+	@JoinColumn(name="iotDeviceId")
+	private Devices devices;
 	
 	public Long getCodigo() {
 		return codigo;
@@ -58,6 +63,12 @@ public class Camion {
 	}
 	public void setModel(Model model) {
 		this.model = model;
+	}
+	public Devices getDevices() {
+		return devices;
+	}
+	public void setDevices(Devices devices) {
+		this.devices = devices;
 	}
 
 
