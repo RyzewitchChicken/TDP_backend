@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import pe.upc.onticket.Service.ServicioDevices;
+
 import pe.upc.onticket.entity.Devices;
 
 
@@ -78,5 +79,20 @@ public class RestDevice {
 		}
 		return d;
 	}
-
+	
+	
+	//OBTENER BY ID
+	@GetMapping("/buscarDevice/{codigo}")
+	public Devices buscarDevices(@PathVariable(value="codigo")Long codigo) {
+		Devices d;
+		
+		try {
+			d=servicioDevices.obtenerDevices(codigo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+		
+		return d;
+	}
 }

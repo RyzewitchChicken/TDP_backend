@@ -74,5 +74,20 @@ public class RestCargo {
 		}
 		return cr;
 	}
+	
+	//OBTENER BY ID
+	@GetMapping("/buscarCargo/{codigo}")
+	public Cargo buscarCargo(@PathVariable(value="codigo")Long codigo) {
+		Cargo cr;
+		
+		try {
+			cr=servicioCargo.obtenerCargo(codigo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+		
+		return cr;
+	}
 
 }

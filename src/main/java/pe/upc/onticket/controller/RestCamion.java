@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
+
 import pe.upc.onticket.Service.ServicioCamion;
 import pe.upc.onticket.entity.Camion;
 
@@ -179,6 +180,21 @@ public class RestCamion {
 		}catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND,"no se puede borrar");
 		}
+		return c;
+	}
+	
+	//OBTENER BY ID
+	@GetMapping("/buscarCamion/{codigo}")
+	public Camion buscarCamion(@PathVariable(value="codigo")Long codigo) {
+		Camion c;
+		
+		try {
+			c=servicioCamion.obtenerCamion(codigo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+		
 		return c;
 	}
 

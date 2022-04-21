@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import pe.upc.onticket.entity.Make;
 import pe.upc.onticket.repositorio.RepositorioMake;
 
@@ -52,6 +53,14 @@ public class ServicioMake {
 		}else {
 			throw new Exception();
 		}
+		return mk;
+	}
+	
+	//OBTENER Marca BY ID
+	public Make obtenerMake(Long codigo) throws Exception {
+		Make mk;
+		mk=repositorioMake.getMake(codigo);
+		if(mk==null)throw new Exception("marca no encontrado");
 		return mk;
 	}
 

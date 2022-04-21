@@ -75,5 +75,21 @@ public class RestFuncionRol {
 		}
 		return fr;
 	}
+	
+	//OBTENER BY ID
+	@GetMapping("/buscarFuncionRol/{codigo}")
+	public FuncionRol buscarFuncionRol(@PathVariable(value="codigo")Long codigo) {
+		FuncionRol fr;
+		
+		try {
+			fr=servicioFuncionRol.obtenerFuncionRol(codigo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+		
+		return fr;
+	}
+
 
 }

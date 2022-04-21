@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import pe.upc.onticket.Service.ServicioProducto;
+
 import pe.upc.onticket.entity.Producto;
 
 
@@ -73,6 +74,21 @@ public class RestProducto {
 		}catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND,"no se puede borrar");
 		}
+		return pr;
+	}
+	
+	//OBTENER BY ID
+	@GetMapping("/buscarProducto/{codigo}")
+	public Producto buscarProducto(@PathVariable(value="codigo")Long codigo) {
+		Producto pr;
+		
+		try {
+			pr=servicioProducto.obtenerProducto(codigo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+		
 		return pr;
 	}
 

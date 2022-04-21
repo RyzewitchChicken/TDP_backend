@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import pe.upc.onticket.entity.Users;
 import pe.upc.onticket.repositorio.RepositorioUsers;
 
@@ -53,7 +54,7 @@ public class ServicioUsers {
 		return users;
 	}
 	
-	//ELIMINAR UN PRODUCTO
+	//ELIMINAR UN USERS
 	public Users eliminarUsers(Long codigo) throws Exception {
 		Users us;
 		us=repositorioUsers.getUsers(codigo);
@@ -62,6 +63,14 @@ public class ServicioUsers {
 		}else {
 			throw new Exception();
 		}
+		return us;
+	}
+	
+	//OBTENER USERS BY ID
+	public Users obtenerUsers(Long codigo) throws Exception {
+		Users us;
+		us=repositorioUsers.getUsers(codigo);
+		if(us==null)throw new Exception("users no encontrado");
 		return us;
 	}
 

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import pe.upc.onticket.Service.ServicioLogs;
+
 import pe.upc.onticket.entity.Logs;
 
 
@@ -75,5 +76,21 @@ public class RestLogs {
 		}
 		return lg;
 	}
+	
+	//OBTENER BY ID
+	@GetMapping("/buscarLogs/{codigo}")
+	public Logs buscarLogs(@PathVariable(value="codigo")Long codigo) {
+		Logs lg;
+		
+		try {
+			lg=servicioLogs.obtenerLogs(codigo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+		
+		return lg;
+	}
+
 
 }

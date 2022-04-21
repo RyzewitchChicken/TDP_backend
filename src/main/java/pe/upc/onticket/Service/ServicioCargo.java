@@ -3,8 +3,10 @@ package pe.upc.onticket.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import pe.upc.onticket.entity.Cargo;
 import pe.upc.onticket.repositorio.RepositorioCargo;
@@ -80,5 +82,15 @@ public class ServicioCargo {
 		}
 		return cr;
 	}
+	
+	
+	//OBTENER CAMION BY ID
+	public Cargo obtenerCargo(Long codigo) throws Exception {
+		Cargo cr;
+		cr=repositorioCargo.getCargo(codigo);
+		if(cr==null)throw new Exception("camion no encontrado");
+		return cr;
+	}
+
 
 }

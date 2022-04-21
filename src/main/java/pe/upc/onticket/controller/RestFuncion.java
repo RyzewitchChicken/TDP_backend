@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import pe.upc.onticket.Service.ServicioFuncion;
+
 import pe.upc.onticket.entity.Funcion;
 
 
@@ -73,6 +74,21 @@ public class RestFuncion {
 		}catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND,"no se puede borrar");
 		}
+		return f;
+	}
+	
+	//OBTENER BY ID
+	@GetMapping("/buscarFuncion/{codigo}")
+	public Funcion buscarFuncion(@PathVariable(value="codigo")Long codigo) {
+		Funcion f;
+		
+		try {
+			f=servicioFuncion.obtenerFuncion(codigo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+		
 		return f;
 	}
 

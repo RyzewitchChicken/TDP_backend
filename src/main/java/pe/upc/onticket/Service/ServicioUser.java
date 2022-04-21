@@ -69,5 +69,13 @@ public class ServicioUser {
 		}
 		return us;
 	}
+	
+	//OBTENER Person BY ID
+	public User obtenerUser(Long codigo) throws Exception {
+		User us;
+		us=repositorioUser.getUser(codigo);
+		if(us==null)throw new Exception("user no encontrado");
+		return us;
+	}
 
 }

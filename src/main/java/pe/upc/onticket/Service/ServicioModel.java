@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import pe.upc.onticket.entity.Model;
 import pe.upc.onticket.repositorio.RepositorioModel;
 
@@ -54,6 +55,14 @@ public class ServicioModel {
 		}else {
 			throw new Exception();
 		}
+		return md;
+	}
+	
+	//OBTENER Model BY ID
+	public Model obtenerModel(Long codigo) throws Exception {
+		Model md;
+		md=repositorioModel.getModel(codigo);
+		if(md==null)throw new Exception("model no encontrado");
 		return md;
 	}
 

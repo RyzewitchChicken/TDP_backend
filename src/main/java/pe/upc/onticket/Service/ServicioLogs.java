@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import pe.upc.onticket.entity.Logs;
 import pe.upc.onticket.repositorio.RepositorioLogs;
 
@@ -62,7 +63,7 @@ public class ServicioLogs {
 		return logs;
 	}
 	
-	//ELIMINAR UN PRODUCTO
+	//ELIMINAR UN LOGS
 	public Logs eliminarLogs(Long codigo) throws Exception {
 		Logs lg;
 		lg=repositorioLogs.getLogs(codigo);
@@ -71,6 +72,14 @@ public class ServicioLogs {
 		}else {
 			throw new Exception();
 		}
+		return lg;
+	}
+	
+	//OBTENER LOGS BY ID
+	public Logs obtenerLogs(Long codigo) throws Exception {
+		Logs lg;
+		lg=repositorioLogs.getLogs(codigo);
+		if(lg==null)throw new Exception("log no encontrado");
 		return lg;
 	}
 

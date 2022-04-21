@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import pe.upc.onticket.entity.FuncionRol;
 
 import pe.upc.onticket.repositorio.RepositorioFuncionRol;
@@ -59,6 +60,14 @@ public class ServicioFuncionRol {
 		}else {
 			throw new Exception();
 		}
+		return fr;
+	}
+	
+	//OBTENER FUNCROL BY ID
+	public FuncionRol obtenerFuncionRol(Long codigo) throws Exception {
+		FuncionRol fr;
+		fr=repositorioFuncionRol.getFuncionRol(codigo);
+		if(fr==null)throw new Exception("funcionrol no encontrado");
 		return fr;
 	}
 

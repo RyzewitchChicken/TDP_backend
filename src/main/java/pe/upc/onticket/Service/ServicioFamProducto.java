@@ -69,5 +69,13 @@ public class ServicioFamProducto {
 		}
 		return fr;
 	}
+	
+	//OBTENER FAMPRODUCTO BY ID
+	public FamProducto obtenerFamProducto(Long codigo) throws Exception {
+		FamProducto fr;
+		fr=repositorioFamProducto.getFamProducto(codigo);
+		if(fr==null)throw new Exception("camion no encontrado");
+		return fr;
+	}
 
 }

@@ -54,10 +54,11 @@ public class ServicioCamion {
 		return camion;
 	}
 	
+	//OBTENER CAMION BY ID
 	public Camion obtenerCamion(Long codigo) throws Exception {
 		Camion c;
 		c=repositorioCamion.getCamion(codigo);
-		if(c==null)throw new Exception("pedido no encontrado");
+		if(c==null)throw new Exception("camion no encontrado");
 		return c;
 	}
 	
@@ -73,5 +74,8 @@ public class ServicioCamion {
 		}
 		return c;
 	}
+	
+	
+
 
 }

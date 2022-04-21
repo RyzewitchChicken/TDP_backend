@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import pe.upc.onticket.Service.ServicioRol;
+
 import pe.upc.onticket.entity.Rol;
 
 
@@ -76,6 +77,23 @@ public class RestRol {
 		}
 		return c;
 	}
+	
+	
+	//OBTENER BY ID
+	@GetMapping("/buscarRol/{codigo}")
+	public Rol buscarRol(@PathVariable(value="codigo")Long codigo) {
+		Rol r;
+		
+		try {
+			r=servicioRol.obtenerRol(codigo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+		
+		return r;
+	}
+
 
 
 }

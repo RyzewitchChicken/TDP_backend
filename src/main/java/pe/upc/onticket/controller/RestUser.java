@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import pe.upc.onticket.Service.ServicioUser;
+
 import pe.upc.onticket.entity.User;
 
 
@@ -77,5 +78,21 @@ public class RestUser {
 		}
 		return us;
 	}
+	
+	//OBTENER BY ID
+	@GetMapping("/buscarUser/{codigo}")
+	public User buscarUser(@PathVariable(value="codigo")Long codigo) {
+		User us;
+		
+		try {
+			us=servicioUser.obtenerUser(codigo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+		
+		return us;
+	}
+
 
 }

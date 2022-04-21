@@ -45,11 +45,11 @@ public class ServicioRol {
 		return rol;
 	}
 	
-	
+	//OBTENER ROL BY ID
 	public Rol obtenerRol(Long codigo) throws Exception {
 		Rol r;
 		r=repositorioRol.getRol(codigo);
-		if(r==null)throw new Exception("pedido no encontrado");
+		if(r==null)throw new Exception("rol no  encontrado");
 		return r;
 	}
 	

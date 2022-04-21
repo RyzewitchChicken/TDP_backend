@@ -55,5 +55,13 @@ public class ServicioFuncion {
 		}
 		return f;
 	}
+	
+	//OBTENER Funcion BY ID
+	public Funcion obtenerFuncion(Long codigo) throws Exception {
+		Funcion f;
+		f=repositorioFuncion.getFuncion(codigo);
+		if(f==null)throw new Exception("funcion no encontrado");
+		return f;
+	}
 
 }

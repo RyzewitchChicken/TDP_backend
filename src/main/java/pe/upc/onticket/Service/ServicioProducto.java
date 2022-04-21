@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import pe.upc.onticket.entity.Producto;
 
 import pe.upc.onticket.repositorio.RepositorioProducto;
@@ -59,6 +60,14 @@ public class ServicioProducto {
 		}else {
 			throw new Exception();
 		}
+		return pr;
+	}
+	
+	//OBTENER PRODUCTO BY ID
+	public Producto obtenerProducto(Long codigo) throws Exception {
+		Producto pr;
+		pr=repositorioProducto.getProducto(codigo);
+		if(pr==null)throw new Exception("camion no encontrado");
 		return pr;
 	}
 

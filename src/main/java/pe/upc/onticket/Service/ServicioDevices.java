@@ -47,6 +47,7 @@ public class ServicioDevices {
 	}
 	
 	
+	//OBTENER Devices BY ID
 	public Devices obtenerDevices(Long codigo) throws Exception {
 		Devices d;
 		d=repositorioDevices.getDevice(codigo);
