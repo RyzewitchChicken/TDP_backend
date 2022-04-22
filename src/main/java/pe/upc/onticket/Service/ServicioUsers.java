@@ -73,5 +73,20 @@ public class ServicioUsers {
 		if(us==null)throw new Exception("users no encontrado");
 		return us;
 	}
+	
+	/*//OBTENER ROLES BY ID
+	public Users obtenerRoles(Long codigo) throws Exception {
+		Users us;
+		us=repositorioUsers.getRoles(codigo);
+		if(us==null)throw new Exception("users no encontrado");
+		return us;
+	}*/
+	//OBTENER ROLES BY ID
+	public List<Object[]> obtenerRoles(Long codigo) throws Exception {
+		List<Object[]> us;
+		us=repositorioUsers.getRoles(codigo);
+		if(us==null)throw new Exception("users no encontrado");
+		return us;
+	}
 
 }
