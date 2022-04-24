@@ -91,5 +91,20 @@ public class RestProducto {
 		
 		return pr;
 	}
+	
+	//LISTAR FAMPRODUCTO
+	@GetMapping("/buscarFamProductos/{codigo}")
+	public List<Object[]> buscarFamProducto(@PathVariable(value="codigo")Long codigo) {
+		List<Object[]> pr;
+		
+		try {
+			pr=servicioProducto.obtenerFamProducto(codigo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+		
+		return pr;
+	}
 
 }

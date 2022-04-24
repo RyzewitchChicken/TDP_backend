@@ -88,5 +88,13 @@ public class ServicioUsers {
 		if(us==null)throw new Exception("users no encontrado");
 		return us;
 	}
+	
+	//OBTENER PERSON BY ID
+	public List<Object[]> obtenerPerson(Long codigo) throws Exception {
+		List<Object[]> us;
+		us=repositorioUsers.getPerson(codigo);
+		if(us==null)throw new Exception("users no encontrado");
+		return us;
+	}
 
 }

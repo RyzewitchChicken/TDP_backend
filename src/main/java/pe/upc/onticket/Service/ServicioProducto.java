@@ -67,7 +67,15 @@ public class ServicioProducto {
 	public Producto obtenerProducto(Long codigo) throws Exception {
 		Producto pr;
 		pr=repositorioProducto.getProducto(codigo);
-		if(pr==null)throw new Exception("camion no encontrado");
+		if(pr==null)throw new Exception("famproducto no encontrado");
+		return pr;
+	}
+	
+	//OBTENER FAMPRODUCTO BY ID
+	public List<Object[]> obtenerFamProducto(Long codigo) throws Exception {
+		List<Object[]> pr;
+		pr=repositorioProducto.getFamProducto(codigo);
+		if(pr==null)throw new Exception("famproducto no encontrado");
 		return pr;
 	}
 

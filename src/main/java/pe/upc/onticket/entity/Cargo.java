@@ -51,6 +51,17 @@ public class Cargo {
 	@JoinColumn(name="familyProductId")
 	private FamProducto famproducto;
 	
+	@ManyToOne
+	@JoinColumn(name="personClientId")
+	private User personClientId;
+	@ManyToOne
+	@JoinColumn(name="personOperatorId")
+	private User personOperatorId;
+	@ManyToOne
+	@JoinColumn(name="personDriverId")
+	private User personDriverId;
+	
+	
 	
 	public Long getCodigo() {
 		return codigo;
@@ -126,6 +137,27 @@ public class Cargo {
 	public void setFamproducto(FamProducto famproducto) {
 		this.famproducto = famproducto;
 	}
+	public User getPersonClientId() {
+		return personClientId;
+	}
+	public void setPersonClientId(User personClientId) {
+		this.personClientId = personClientId;
+	}
+	public User getPersonOperatorId() {
+		return personOperatorId;
+	}
+	public void setPersonOperatorId(User personOperatorId) {
+		this.personOperatorId = personOperatorId;
+	}
+	public User getPersonDriverId() {
+		return personDriverId;
+	}
+	public void setPersonDriverId(User personDriverId) {
+		this.personDriverId = personDriverId;
+	}
+
+	
+	
 	
 	
 	

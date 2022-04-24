@@ -125,4 +125,19 @@ public class RestUsers {
 		return us;
 	}
 	
+	
+	//LISTAR PERSON
+	@GetMapping("/buscarPerson/{codigo}")
+	public List<Object[]> buscarPerson(@PathVariable(value="codigo")Long codigo) {
+		List<Object[]> us;
+		
+		try {
+			us=servicioUsers.obtenerPerson(codigo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+		
+		return us;
+	}
 }
