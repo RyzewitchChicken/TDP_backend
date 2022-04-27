@@ -97,4 +97,12 @@ public class ServicioUsers {
 		return us;
 	}
 
+	//OBTENER PERSONS BY ROLID
+	public List<Users> obtenerUsersByRolId(Long codigo) throws Exception {
+		List<Users> us;
+		us=repositorioUsers.getUserByRolId(codigo);
+		if(us==null)throw new Exception("users no encontrado");
+		return us;
+	}
+
 }

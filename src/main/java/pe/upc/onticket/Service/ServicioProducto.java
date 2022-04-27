@@ -79,4 +79,12 @@ public class ServicioProducto {
 		return pr;
 	}
 
+	//OBTENER PRODUCT BY FAMILIA
+	public List<Producto> obtenerProductosPorFamilia(Long codigo) throws Exception {
+		List<Producto> pr;
+		pr=repositorioProducto.getProductsByFamProductoId(codigo);
+		if(pr==null)throw new Exception("famproducto no encontrado");
+		return pr;
+	}
+
 }

@@ -140,4 +140,20 @@ public class RestUsers {
 		
 		return us;
 	}
+
+	//LISTAR USERS BY ROL ID
+	@GetMapping("/buscarUsersPorRol/{codigo}")
+	public List<Users> buscarUsersPorRol(@PathVariable(value="codigo")Long codigo) {
+		List<Users> us;
+
+		try {
+			us=servicioUsers.obtenerUsersByRolId(codigo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+
+		return us;
+	}
+
 }

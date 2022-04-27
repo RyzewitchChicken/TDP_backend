@@ -21,11 +21,11 @@ public class User {
 	private String personLastName;
 	private String personCompany;
 	private String personDocument;
-	private Date   personBirthDate;
+	private String  personBirthDate;
 	private String personEmail;
-	
 
-	
+
+
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -56,10 +56,10 @@ public class User {
 	public void setPersonDocument(String personDocument) {
 		this.personDocument = personDocument;
 	}
-	public Date getPersonBirthDate() {
+	public String getPersonBirthDate() {
 		return personBirthDate;
 	}
-	public void setPersonBirthDate(Date personBirthDate) {
+	public void setPersonBirthDate(String personBirthDate) {
 		this.personBirthDate = personBirthDate;
 	}
 	public String getPersonEmail() {
@@ -68,9 +68,9 @@ public class User {
 	public void setPersonEmail(String personEmail) {
 		this.personEmail = personEmail;
 	}
-	
-	
-	
-	
+
+
+
+
 
 }

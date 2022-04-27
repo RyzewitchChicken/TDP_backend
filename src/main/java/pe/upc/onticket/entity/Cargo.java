@@ -22,35 +22,33 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name="Cargo")
 public class Cargo {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="cargoId")
 	private Long codigo;
 	private String cargoName;
-	
-	
-	private Date cargoDate;
-	
-	@JsonFormat(pattern="HH:mm:ss")
-	private LocalTime cargoHour;
-	
+
+
+	private String cargoDate;
+
+	private String cargoHour;
+
 	private String cargoInitialUbication;
 	private String cargoFinalUbication;
 	private String cargoStatus;
-	
-	@JsonFormat(pattern="HH:mm:ss")
-	private LocalTime cargoRouteDuration;
+
+	private String cargoRouteDuration;
 	private String cargoRouteStatus;
-	
+
 	@ManyToOne
 	@JoinColumn(name="truckId")
 	private Camion camion;
-	
+
 	@ManyToOne
 	@JoinColumn(name="familyProductId")
 	private FamProducto famproducto;
-	
+
 	@ManyToOne
 	@JoinColumn(name="personClientId")
 	private User personClientId;
@@ -60,9 +58,9 @@ public class Cargo {
 	@ManyToOne
 	@JoinColumn(name="personDriverId")
 	private User personDriverId;
-	
-	
-	
+
+
+
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -76,26 +74,22 @@ public class Cargo {
 		this.cargoName = cargoName;
 	}
 
-	
-	
-
-
-	public Date getCargoDate() {
+	public String getCargoDate() {
 		return cargoDate;
 	}
-	public void setCargoDate(Date cargoDate) {
+	public void setCargoDate(String cargoDate) {
 		this.cargoDate = cargoDate;
 	}
-	public LocalTime getCargoHour() {
+	public String getCargoHour() {
 		return cargoHour;
 	}
-	public void setCargoHour(LocalTime cargoHour) {
+	public void setCargoHour(String cargoHour) {
 		this.cargoHour = cargoHour;
 	}
-	public LocalTime getCargoRouteDuration() {
+	public String getCargoRouteDuration() {
 		return cargoRouteDuration;
 	}
-	public void setCargoRouteDuration(LocalTime cargoRouteDuration) {
+	public void setCargoRouteDuration(String cargoRouteDuration) {
 		this.cargoRouteDuration = cargoRouteDuration;
 	}
 	public String getCargoInitialUbication() {
@@ -122,9 +116,9 @@ public class Cargo {
 	public void setCargoRouteStatus(String cargoRouteStatus) {
 		this.cargoRouteStatus = cargoRouteStatus;
 	}
-	
-	
-	
+
+
+
 	public Camion getCamion() {
 		return camion;
 	}
@@ -156,12 +150,13 @@ public class Cargo {
 		this.personDriverId = personDriverId;
 	}
 
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 
 
 }
+

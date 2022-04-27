@@ -107,4 +107,16 @@ public class RestProducto {
 		return pr;
 	}
 
+	@GetMapping("/buscarProductosPorFamilia/{codigo}")
+	public List<Producto> buscarProductosPorFamilia(@PathVariable(value="codigo")Long codigo) {
+		List<Producto> producto;
+		try {
+			producto=servicioProducto.obtenerProductosPorFamilia(codigo);
+		} catch (Exception e) {
+
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+		return producto;
+	}
+
 }

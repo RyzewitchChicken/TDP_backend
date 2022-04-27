@@ -22,4 +22,8 @@ public interface RepositorioUsers extends JpaRepository<Users,Long>{
 	
 	@Query("SELECT c.user FROM Users c WHERE c.codigo=:codigo")
 	List<Object[]> getPerson(@Param(value="codigo")Long codigo);
+
+	@Query("SELECT c FROM Users c WHERE c.rol.codigo=:codigo")
+	List<Users> getUserByRolId(@Param(value="codigo")Long codigo);
+
 }
