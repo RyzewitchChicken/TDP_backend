@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import pe.upc.onticket.entity.Cargo;
+import pe.upc.onticket.entity.Users;
 import pe.upc.onticket.repositorio.RepositorioCargo;
 
 
@@ -84,11 +85,35 @@ public class ServicioCargo {
 	}
 	
 	
-	//OBTENER CAMION BY ID
+	//OBTENER CARGO BY ID
 	public Cargo obtenerCargo(Long codigo) throws Exception {
 		Cargo cr;
 		cr=repositorioCargo.getCargo(codigo);
 		if(cr==null)throw new Exception("camion no encontrado");
+		return cr;
+	}
+
+	//OBTENER CARGO BY PERSON CLIENT ID
+	public List<Cargo> obtenerCargoByClientId(Long codigo) throws Exception {
+		List<Cargo> cr;
+		cr=repositorioCargo.getCargoByClientId(codigo);
+		if(cr==null)throw new Exception("cargo no encontrado");
+		return cr;
+	}
+
+	//OBTENER CARGO BY PERSON DRIVER ID
+	public List<Cargo> obtenerCargoByDriverId(Long codigo) throws Exception {
+		List<Cargo> cr;
+		cr=repositorioCargo.getCargoByDriverId(codigo);
+		if(cr==null)throw new Exception("cargo no encontrado");
+		return cr;
+	}
+
+	//OBTENER CARGO BY PERSON CLIENT ID
+	public List<Cargo> obtenerCargoByOperatorId(Long codigo) throws Exception {
+		List<Cargo> cr;
+		cr=repositorioCargo.getCargoByOperatortId(codigo);
+		if(cr==null)throw new Exception("cargo no encontrado");
 		return cr;
 	}
 

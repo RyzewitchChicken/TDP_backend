@@ -27,6 +27,7 @@ import org.springframework.web.server.ResponseStatusException;
 import pe.upc.onticket.Service.ServicioCargo;
 import pe.upc.onticket.entity.Camion;
 import pe.upc.onticket.entity.Cargo;
+import pe.upc.onticket.entity.Users;
 
 
 @RestController
@@ -101,35 +102,49 @@ public class RestCargo {
 		
 		return cr;
 	}
-	/*
-	@PostMapping("/cargo/upload")
-	public ResponseEntity<?> upload(@RequestParam("codigo") Long archivo, @RequestParam("codigo") Long codigo){
-		Map<String, Object> response=new HashMap<>();
-		Cargo cargo;
+	//LISTAR CARGO BY CLIENT ID
+	@GetMapping("/buscarCargoporCliente/{codigo}")
+	public List<Cargo> buscarCargoporCliente(@PathVariable(value="codigo")Long codigo) {
+		List<Cargo> us;
+
 		try {
-			cargo=servicioCargo.obtenerCargo(codigo);
+			us=servicioCargo.obtenerCargoByClientId(codigo);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No se encontraron cargos");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
 		}
 
+		return us;
+	}
 
-			
-			cargo.setPersonClientId(archivo);
-			
-			try {
-				servicioCargo.actualizarCargo(cargo, codigo);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				throw new ResponseStatusException(HttpStatus.NOT_FOUND,"no se puede registrar cargo");
-				
-			}
-			
-			response.put("cargo", cargo);
-			response.put("mensaje", "Se subio correctamente el archivo");
-		
-		
-		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
-	}*/
+	//LISTAR CARGO BY CONDUCTOR ID
+	@GetMapping("/buscarCargoporConductor/{codigo}")
+	public List<Cargo> buscarCargoporConductor(@PathVariable(value="codigo")Long codigo) {
+		List<Cargo> us;
+
+		try {
+			us=servicioCargo.obtenerCargoByDriverId(codigo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+
+		return us;
+	}
+
+	//LISTAR CARGO BY OPERADOR ID
+	@GetMapping("/buscarCargoporOperador/{codigo}")
+	public List<Cargo> buscarCargoporOperador(@PathVariable(value="codigo")Long codigo) {
+		List<Cargo> us;
+
+		try {
+			us=servicioCargo.obtenerCargoByOperatorId(codigo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+
+		return us;
+	}
 
 }
