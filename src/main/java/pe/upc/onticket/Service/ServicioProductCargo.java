@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import pe.upc.onticket.entity.Cargo;
 import pe.upc.onticket.entity.ProductCargo;
 import pe.upc.onticket.repositorio.RepositorioProductCargo;
 
@@ -72,4 +73,11 @@ public class ServicioProductCargo {
 		return pc;
 	}
 
+	//OBTENER PRODUCT_CARGO BY CARGO ID
+	public List<ProductCargo> obtenerProductCargoByCargoId(Long codigo) throws Exception {
+		List<ProductCargo> cr;
+		cr=repositorioProductCargo.getProductCargoByCargoId(codigo);
+		if(cr==null)throw new Exception("cargo no encontrado");
+		return cr;
+	}
 }

@@ -15,6 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import pe.upc.onticket.Service.ServicioProductCargo;
 
+import pe.upc.onticket.entity.Cargo;
 import pe.upc.onticket.entity.ProductCargo;
 
 
@@ -90,6 +91,21 @@ public class RestProductCargo {
 		}
 		
 		return pc;
+	}
+
+	//LISTAR PRODUCT_CARGO BY CARGO ID
+	@GetMapping("/buscarProductoCargoPorCargo/{codigo}")
+	public List<ProductCargo> buscarProductCargoporCargo(@PathVariable(value="codigo")Long codigo) {
+		List<ProductCargo> us;
+
+		try {
+			us=servicioProductCargo.obtenerProductCargoByCargoId(codigo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
+		}
+
+		return us;
 	}
 
 }
