@@ -1,16 +1,29 @@
 package pe.upc.onticket.controller;
 
+
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.tomcat.util.http.fileupload.FileUtils;
+import org.apache.tomcat.util.http.parser.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,6 +37,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.lowagie.text.DocumentException;
+
+import pe.upc.onticket.Service.CargoPDFExporter;
 import pe.upc.onticket.Service.ServicioCargo;
 import pe.upc.onticket.entity.Camion;
 import pe.upc.onticket.entity.Cargo;
@@ -146,5 +162,25 @@ public class RestCargo {
 
 		return us;
 	}
+	
+	//CREATE PDF
+	@GetMapping("cargo/export/{codigo}")
+	public void exportToPDF(HttpServletResponse response, @PathVariable(value="codigo")Long codigo)  throws Exception{
+		response.setContentType("application/pdf");
+		DateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy_HH:mm:ss");
+		String currentDateTime=dateFormatter.format(new Date());
+		String headerKey= "Content-Disposition";
+		String filename="cargo_" + currentDateTime+ ".pdf";
+		String headerValue="attachment; filename="+ filename;
+		//Path ruta=Paths.get("uploads").resolve(filename).toAbsolutePath();
+		response.setHeader(headerKey, headerValue);
+		Cargo cargo =servicioCargo.obtenerCargo(codigo);
+		CargoPDFExporter exporter = new CargoPDFExporter(cargo);
+		exporter.export(response, filename);
+		System.out.println(headerValue);
+		
+	}
+
+
 
 }

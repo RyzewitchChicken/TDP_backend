@@ -82,5 +82,13 @@ public class ServicioLogs {
 		if(lg==null)throw new Exception("log no encontrado");
 		return lg;
 	}
+	
+	//OBTENER LOGS BY CARGOID
+	public List<Logs> obtenerLogsCargo(Long codigo) throws Exception {
+		List<Logs> lg;
+		lg=repositorioLogs.getLogsCargo(codigo);
+		if(lg==null)throw new Exception("log no encontrado");
+		return lg;
+	}
 
 }
