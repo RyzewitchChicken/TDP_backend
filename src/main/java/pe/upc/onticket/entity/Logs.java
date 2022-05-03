@@ -25,9 +25,8 @@ public class Logs {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="logId")
 	private Long codigo;
-	private Date logCargoDate;
-	@JsonFormat(pattern="HH:mm:ss")
-	private LocalTime logCargoHour;
+	private String logCargoDate;
+	private String logCargoHour;
 	private String logCargoUbication;
 	private String logCargoTemperature;
 	private String logCargoHumidity;
@@ -45,10 +44,10 @@ public class Logs {
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-	public Date getLogCargoDate() {
+	public String getLogCargoDate() {
 		return logCargoDate;
 	}
-	public void setLogCargoDate(Date logCargoDate) {
+	public void setLogCargoDate(String logCargoDate) {
 		this.logCargoDate = logCargoDate;
 	}
 	public Cargo getCargo() {
@@ -59,10 +58,10 @@ public class Logs {
 	}
 
 	
-	public LocalTime getLogCargoHour() {
+	public String getLogCargoHour() {
 		return logCargoHour;
 	}
-	public void setLogCargoHour(LocalTime logCargoHour) {
+	public void setLogCargoHour(String logCargoHour) {
 		this.logCargoHour = logCargoHour;
 	}
 	public String getLogCargoUbication() {
