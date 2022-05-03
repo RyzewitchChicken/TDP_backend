@@ -149,6 +149,7 @@ public class Cargo {
 	public void setPersonDriverId(User personDriverId) {
 		this.personDriverId = personDriverId;
 	}
+	
 
 
 

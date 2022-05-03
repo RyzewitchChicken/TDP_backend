@@ -32,11 +32,13 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 
 import pe.upc.onticket.entity.Cargo;
+import pe.upc.onticket.entity.User;
 
 
 
 public class CargoPDFExporter {
 	private Cargo cargo;
+	
 	
 	
 
@@ -47,14 +49,18 @@ public class CargoPDFExporter {
 	private void writeTableHeader(PdfPTable table) {
 		PdfPCell cell = new PdfPCell();
 		cell.setBackgroundColor(Color.GRAY);
-		cell.setPadding(5);
+		cell.setPadding(4);
 		Font font= FontFactory.getFont(FontFactory.HELVETICA);
 		font.setColor(Color.WHITE);
 		cell.setPhrase(new Phrase("Cargo Id"));
 		table.addCell(cell);
-		cell.setPhrase(new Phrase("Operator Id"));
+		cell.setPhrase(new Phrase("Driver Name"));
 		table.addCell(cell);
-		cell.setPhrase(new Phrase("Client id"));
+		cell.setPhrase(new Phrase("Driver Last Name"));
+		table.addCell(cell);
+		cell.setPhrase(new Phrase("Client Name"));
+		table.addCell(cell);
+		cell.setPhrase(new Phrase("Client Last Name"));
 		table.addCell(cell);
 		cell.setPhrase(new Phrase("Duration"));
 		table.addCell(cell);
@@ -67,11 +73,14 @@ public class CargoPDFExporter {
 	
 	private void writeTableData(PdfPTable table) {
 			table.addCell(String.valueOf(cargo.getCodigo()));
-			table.addCell(String.valueOf(cargo.getPersonDriverId()));
-			table.addCell(String.valueOf(cargo.getPersonClientId()));
+			table.addCell(String.valueOf(cargo.getPersonDriverId().getPersonName()));
+			table.addCell(String.valueOf(cargo.getPersonDriverId().getPersonLastName()));
+			table.addCell(String.valueOf(cargo.getPersonClientId().getPersonName()));
+			table.addCell(String.valueOf(cargo.getPersonClientId().getPersonLastName()));
 			table.addCell(String.valueOf(cargo.getCargoRouteDuration()));
 			table.addCell(String.valueOf(cargo.getCargoStatus()));
 			table.addCell(String.valueOf(cargo.getCargoRouteStatus()));
+
 	}
 	
 	private static final String BUCKET= "logiappbucket";
@@ -84,9 +93,9 @@ public class CargoPDFExporter {
 		document.open();
 		document.add(new Paragraph("List of Cargo"));
 		
-		PdfPTable table = new PdfPTable(6);
+		PdfPTable table = new PdfPTable(8);
 		table.setWidthPercentage(100);
-		table.setSpacingBefore(10);
+		table.setSpacingBefore(9);
 		writeTableHeader(table);
 		writeTableData(table);
 		document.add(table);
