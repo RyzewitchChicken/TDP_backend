@@ -61,6 +61,9 @@ public class ServicioCargo {
 		if(cargo.getFamproducto()!=null) {
 			cr.setFamproducto(cargo.getFamproducto());
 		}
+		if(cargo.getCargoComments()!=null) {
+			cr.setCargoComments(cargo.getCargoComments());
+		}
 		return repositorioCargo.save(cr);
 		
 	}

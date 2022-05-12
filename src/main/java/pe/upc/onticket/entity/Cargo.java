@@ -59,6 +59,8 @@ public class Cargo {
 	@JoinColumn(name="personDriverId")
 	private User personDriverId;
 
+	private String cargoComments;
+
 
 
 	public Long getCodigo() {
@@ -117,8 +119,6 @@ public class Cargo {
 		this.cargoRouteStatus = cargoRouteStatus;
 	}
 
-
-
 	public Camion getCamion() {
 		return camion;
 	}
@@ -149,6 +149,10 @@ public class Cargo {
 	public void setPersonDriverId(User personDriverId) {
 		this.personDriverId = personDriverId;
 	}
+
+	public String getCargoComments() { return cargoComments;}
+
+	public void setCargoComments(String cargoComment) { this.cargoComments = cargoComment; }
 	
 
 
