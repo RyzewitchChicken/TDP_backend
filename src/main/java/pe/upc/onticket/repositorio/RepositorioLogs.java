@@ -13,7 +13,7 @@ public interface RepositorioLogs extends JpaRepository<Logs,Long>{
 	
 	@Query("SELECT c FROM Logs c WHERE c.codigo=:codigo")
 	Logs getLogs(@Param(value="codigo")Long codigo);
-	
-	@Query("SELECT c FROM Logs c inner join c.cargo a WHERE a.codigo=:codigo")
+
+	@Query("SELECT c FROM Logs c WHERE c.cargo.codigo=:codigo")
 	List<Logs> getLogsCargo(@Param(value="codigo")Long codigo);
 }
