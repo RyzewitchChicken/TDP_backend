@@ -50,7 +50,9 @@ public class ServicioLogs {
 		if(logs.getLogCargoVelocity()!=null) {
 			lg.setLogCargoVelocity(logs.getLogCargoVelocity());
 		}
-
+		if(logs.getLogCargoAlertType()!=null) {
+			lg.setLogCargoAlertType(logs.getLogCargoAlertType());
+		}
 
 		return repositorioLogs.save(lg);
 		

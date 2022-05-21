@@ -31,9 +31,17 @@ public class Logs {
 	private String logCargoTemperature;
 	private String logCargoHumidity;
 	private String logCargoVelocity;
+
+	public String getLogCargoAlertType() {
+		return logCargoAlertType;
+	}
+
+	public void setLogCargoAlertType(String logCargoAlertType) {
+		this.logCargoAlertType = logCargoAlertType;
+	}
+
 	private String logCargoAlertType;
-	
-	
+
 	@ManyToOne
 	@JoinColumn(name="cargoId")
 	private Cargo cargo;
@@ -87,12 +95,6 @@ public class Logs {
 	}
 	public void setLogCargoVelocity(String logCargoVelocity) {
 		this.logCargoVelocity = logCargoVelocity;
-	}
-	public String isLogCargoAlertType() {
-		return logCargoAlertType;
-	}
-	public void setLogCargoAlertType(String logCargoAlertType) {
-		this.logCargoAlertType = logCargoAlertType;
 	}
 
 	
