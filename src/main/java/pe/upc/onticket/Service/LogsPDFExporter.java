@@ -60,7 +60,7 @@ public class LogsPDFExporter {
 		
 		
 		for (Logs log:logs) {
-			if(log.isLogCargoAlertType() == 0){
+			if(log.isLogCargoAlertType() == "0"){
 				table.addCell(String.valueOf(log.getCodigo()));
 				table.addCell(String.valueOf(log.getLogCargoDate()));
 				table.addCell(String.valueOf(log.getLogCargoHour()));
@@ -78,7 +78,7 @@ public class LogsPDFExporter {
 		
 		
 		for (Logs log:logs) {
-			if(log.isLogCargoAlertType() == 1){
+			if(log.isLogCargoAlertType() == "1"){
 				table.addCell(String.valueOf(log.getCodigo()));
 				table.addCell(String.valueOf(log.getLogCargoDate()));
 				table.addCell(String.valueOf(log.getLogCargoHour()));
