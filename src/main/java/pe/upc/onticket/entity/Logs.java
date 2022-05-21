@@ -31,7 +31,7 @@ public class Logs {
 	private String logCargoTemperature;
 	private String logCargoHumidity;
 	private String logCargoVelocity;
-	private boolean logCargoAlertType;
+	private Integer logCargoAlertType;
 	
 	
 	@ManyToOne
@@ -88,10 +88,10 @@ public class Logs {
 	public void setLogCargoVelocity(String logCargoVelocity) {
 		this.logCargoVelocity = logCargoVelocity;
 	}
-	public boolean isLogCargoAlertType() {
+	public Integer isLogCargoAlertType() {
 		return logCargoAlertType;
 	}
-	public void setLogCargoAlertType(boolean logCargoAlertType) {
+	public void setLogCargoAlertType(Integer logCargoAlertType) {
 		this.logCargoAlertType = logCargoAlertType;
 	}
 
