@@ -60,7 +60,7 @@ public class LogsPDFExporter {
 		
 		
 		for (Logs log:logs) {
-			if(log.isLogCargoAlertType() == "0"){
+			if(log.getLogCargoAlertType() == "0"){
 				table.addCell(String.valueOf(log.getCodigo()));
 				table.addCell(String.valueOf(log.getLogCargoDate()));
 				table.addCell(String.valueOf(log.getLogCargoHour()));
@@ -68,8 +68,8 @@ public class LogsPDFExporter {
 				table.addCell(String.valueOf(log.getLogCargoTemperature()));
 				table.addCell(String.valueOf(log.getLogCargoHumidity()));
 				table.addCell(String.valueOf(log.getLogCargoVelocity()));
-				table.addCell(String.valueOf(log.isLogCargoAlertType()));
-				System.out.println(String.valueOf(log.isLogCargoAlertType()));
+				table.addCell(String.valueOf(log.getLogCargoAlertType()));
+				System.out.println(String.valueOf(log.getLogCargoAlertType()));
 				}
 			
 			}
@@ -78,7 +78,7 @@ public class LogsPDFExporter {
 		
 		
 		for (Logs log:logs) {
-			if(log.isLogCargoAlertType() == "1"){
+			if(log.getLogCargoAlertType() == "1"){
 				table.addCell(String.valueOf(log.getCodigo()));
 				table.addCell(String.valueOf(log.getLogCargoDate()));
 				table.addCell(String.valueOf(log.getLogCargoHour()));
@@ -87,8 +87,8 @@ public class LogsPDFExporter {
 				table.addCell(String.valueOf(log.getLogCargoHumidity()));
 				table.addCell(String.valueOf(log.getLogCargoVelocity()));
 					
-				table.addCell(String.valueOf(log.isLogCargoAlertType()));
-				System.out.println(String.valueOf(log.isLogCargoAlertType()));
+				table.addCell(String.valueOf(log.getLogCargoAlertType()));
+				System.out.println(String.valueOf(log.getLogCargoAlertType()));
 				}
 			
 			}
